@@ -19,7 +19,9 @@ class CalcBot(BotPlugin):
         if not os.path.exists(QALC_PATH):
             return ('ERROR: this plugin requires libqalculate with the qalc command o be installed. '
                     'On gentoo it requires the readline useflag. To customize `qalq` path, set the '
-                    'environment variable QALC_PATH (default to /usr/bin/qalc)')
+                    'environment variable QALC_PATH (default to /usr/bin/qalc)'
+                    'On debian run: sudo apt-get install qalc'
+                    'On debian run it once: qalc 1+1 (cause on first run you get a request about exchange rates)')
         if not args:
             return 'Please give me an expression to solve'
         p = subprocess.Popen([QALC_PATH, '-t', args], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
